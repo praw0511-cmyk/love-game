@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>For My Babe 💖</title>
+<style>
+    body {
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+        text-align: center;
+        padding: 40px;
+    }
+    .box {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        max-width: 400px;
+        margin: auto;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    input {
+        padding: 10px;
+        font-size: 18px;
+        text-align: center;
+        width: 80%;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+    }
+    button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 15px;
+        border: none;
+        cursor: pointer;
+        background: #ff69b4;
+        color: white;
+    }
+    button:hover {
+        background: #ff1493;
+    }
+    .hidden {
+        display: none;
+    }
+    .emoji-btn {
+        font-size: 40px;
+        cursor: pointer;
+        margin: 20px;
+    }
+    .back {
+        color: blue;
+        cursor: pointer;
+        text-decoration: underline;
+        margin-top: 15px;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- หน้าใส่รหัส -->
+<div class="box" id="page1">
+    <h2>💖 ใส่รหัสลับ 💖</h2>
+    <p>คำใบ้: วันที่คบกันมี 6 ตัวน้าา 😘</p>
+    <input type="password" id="code" placeholder="******">
+    <br>
+    <button onclick="checkCode()">ยืนยัน</button>
+</div>
+
+<!-- หน้าถูกรหัส -->
+<div class="box hidden" id="page2">
+    <h2>🎉 รหัสผ่านถูกต้อง 🎉</h2>
+    <p>ที่รักเก่งที่สุดเลยค้าบ 🥰</p>
+    <button onclick="goQuestion()">กดข้าม ➡️</button>
+</div>
+
+<!-- หน้าคำถาม -->
+<div class="box hidden" id="page3">
+    <h2>HEY BABE 💕</h2>
+    <p>รักเค้าไหม?</p>
+    <span class="emoji-btn" onclick="love()">❤️</span>
+    <span class="emoji-btn" onclick="notLove()">❌</span>
+</div>
+
+<!-- ไม่รัก -->
+<div class="box hidden" id="page4">
+    <h2>😡</h2>
+    <p>ไม่รักเค้าจริงหรอ<br>เค้าไม่น่ารักตรงไหน!</p>
+    <div class="back" onclick="goQuestion()">⬅️ ย้อนกลับไปตอบใหม่</div>
+</div>
+
+<!-- รัก -->
+<div class="box hidden" id="page5">
+    <h2>💐</h2>
+    <p>เค้ารักเธอมากที่สุดดด 💖</p>
+    <p>💐🌷🌹🌸🌼</p>
+    <button onclick="approve()">คลิกอนุมัติให้คุณเป็น "คนโปรด"</button>
+</div>
+
+<!-- อนุมัติ -->
+<div class="box hidden" id="page6">
+    <h2>💞</h2>
+    <p>
+        อนุมัติให้ความรักนี้มีผลตลอดไป<br>
+        ❤️❤️❤️
+    </p>
+</div>
+
+<script>
+function checkCode() {
+    const code = document.getElementById("code").value;
+    if (code === "060566") {
+        page1.classList.add("hidden");
+        page2.classList.remove("hidden");
+    } else {
+        alert("รหัสไม่ถูกนะ ลองใหม่อีกที 💔");
+    }
+}
+
+function goQuestion() {
+    hideAll();
+    page3.classList.remove("hidden");
+}
+
+function notLove() {
+    hideAll();
+    page4.classList.remove("hidden");
+}
+
+function love() {
+    hideAll();
+    page5.classList.remove("hidden");
+}
+
+function approve() {
+    hideAll();
+    page6.classList.remove("hidden");
+}
+
+function hideAll() {
+    document.querySelectorAll(".box").forEach(b => b.classList.add("hidden"));
+}
+</script>
+
+</body>
+</html>
